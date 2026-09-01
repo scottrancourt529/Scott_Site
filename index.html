@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scott Rancourt | Web Design & App Development</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: #1a1a1a;
+            line-height: 1.6;
+            background: #ffffff;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: #0a0a0a;
+            color: white;
+            padding: 1.5rem 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1rem;
+            color: #cccccc;
+            font-weight: 400;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            color: #e0e0e0;
+            line-height: 1.5;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 0.875rem 2.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: #1d4ed8;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 4rem 2rem;
+            background: #f9f9f9;
+        }
+
+        .services h3 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid #e5e5e5;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .service-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #0a0a0a;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .pricing h3 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+
+        .pricing-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: #f0f4ff;
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 2px solid #2563eb;
+        }
+
+        .pricing-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #ddd;
+            font-size: 1rem;
+        }
+
+        .pricing-item:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-item strong {
+            font-weight: 600;
+            color: #0a0a0a;
+        }
+
+        .pricing-item span {
+            color: #2563eb;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .total-price {
+            padding: 1.5rem 0;
+            margin-top: 1rem;
+            border-top: 2px solid #2563eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.25rem;
+        }
+
+        .total-price strong {
+            font-weight: 700;
+            color: #0a0a0a;
+        }
+
+        .total-price span {
+            color: #2563eb;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 4rem 2rem;
+            background: #0a0a0a;
+            color: white;
+        }
+
+        .contact h3 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #1a1a1a;
+            padding: 2.5rem;
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem;
+            border: 1px solid #444;
+            border-radius: 6px;
+            background: #0a0a0a;
+            color: white;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            width: 100%;
+            background: #2563eb;
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .form-submit:hover {
+            background: #1d4ed8;
+        }
+
+        /* Footer */
+        footer {
+            background: #000000;
+            color: #999;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .hero h2 {
+                font-size: 1.75rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .services h3,
+            .pricing h3,
+            .contact h3 {
+                font-size: 1.5rem;
+            }
+
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .pricing-container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Scott Rancourt</h1>
+        <p>Freelance Web Developer & App Designer</p>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Professional Web Design & Development</h2>
+        <p>I build custom websites and small applications that help your business stand out and grow online.</p>
+        <a href="#contact" class="cta-button">Get Started</a>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <h3>What I Offer</h3>
+        <div class="services-grid">
+            <div class="service-card">
+                <h4>Web Design</h4>
+                <p>Custom, responsive websites built from the ground up. I create clean, modern sites that convert visitors into customers. From landing pages to full business websites, I've got you covered.</p>
+            </div>
+            <div class="service-card">
+                <h4>App Development</h4>
+                <p>Small, focused applications designed to solve specific business problems. Whether it's a tool to streamline operations or improve customer experience, I build apps that work.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <h3>Simple Pricing</h3>
+        <div class="pricing-container">
+            <div class="pricing-item">
+                <strong>Initial Deposit</strong>
+                <span>$100</span>
+            </div>
+            <div class="pricing-item">
+                <strong>Design & Development</strong>
+                <span>$150</span>
+            </div>
+            <div class="pricing-item">
+                <strong>Hosting & Maintenance <span style="font-size: 0.75rem; color: #555; display: block; font-weight: 400;">(1 year included)</span></strong>
+                <span>$150</span>
+            </div>
+            <div class="total-price">
+                <strong>Total Investment</strong>
+                <span>$400</span>
+            </div>
+            <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #555; text-align: center;">
+                <p><strong style="color: #0a0a0a;">Everything is included.</strong> One upfront payment covers design, development, hosting, and one year of maintenance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h3>Get in Touch</h3>
+        <form class="contact-form" action="https://formsubmit.co/scottrancourt529@gmail.com" method="POST">
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="company">Company (optional)</label>
+                <input type="text" id="company" name="company">
+            </div>
+            <div class="form-group">
+                <label for="message">Tell Me About Your Project</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="form-submit">Send Message</button>
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://scottrancourt529@gmail.com">
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Scott Rancourt. All rights reserved.</p>
+    </footer>
+</body>
+</html>
