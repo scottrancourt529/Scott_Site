@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Scott Rancourt | CS Student & AI Integration Specialist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+                'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+                sans-serif;
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background-color: #1a1a1a;
+            padding: clamp(1rem, 5vw, 2rem) 0;
+            border-bottom: 1px solid #2a2a2a;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(1rem, 5vw, 2rem);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: clamp(1rem, 3vw, 2rem);
+        }
+
+        nav a {
+            color: #b0b0b0;
+            text-decoration: none;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #ffffff;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: clamp(2rem, 8vw, 4rem) clamp(1rem, 5vw, 2rem);
+        }
+
+        .about-hero {
+            margin-bottom: clamp(3rem, 8vw, 4rem);
+        }
+
+        .about-hero h1 {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .about-hero p {
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            color: #b0b0b0;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Bio Section */
+        .bio-section {
+            background-color: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: clamp(2rem, 5vw, 3rem);
+            margin-bottom: clamp(2rem, 8vw, 3rem);
+        }
+
+        .bio-section h2 {
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+        }
+
+        .bio-section p {
+            font-size: clamp(0.95rem, 2vw, 1.05rem);
+            color: #d0d0d0;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .bio-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            background-color: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: clamp(2rem, 5vw, 3rem);
+            margin-bottom: clamp(2rem, 8vw, 3rem);
+        }
+
+        .skills-section h2 {
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            margin-bottom: 2rem;
+            color: #ffffff;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-card {
+            background-color: #0a0a0a;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            border-color: #404040;
+            background-color: #151515;
+        }
+
+        .skill-card h3 {
+            font-size: clamp(0.95rem, 2vw, 1.05rem);
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-card p {
+            font-size: 0.85rem;
+            color: #909090;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            background-color: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: clamp(2rem, 5vw, 3rem);
+            margin-bottom: clamp(2rem, 8vw, 3rem);
+        }
+
+        .projects-section h2 {
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background-color: #0a0a0a;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            border-color: #404040;
+            background-color: #151515;
+            transform: translateY(-2px);
+        }
+
+        .project-card h3 {
+            font-size: 1rem;
+            color: #ffffff;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-card p {
+            font-size: 0.9rem;
+            color: #b0b0b0;
+            margin-bottom: 1rem;
+        }
+
+        .project-link {
+            display: inline-block;
+            color: #2563eb;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: #1d4ed8;
+        }
+
+        /* Social Links */
+        .social-section {
+            background-color: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: clamp(2rem, 5vw, 3rem);
+            text-align: center;
+        }
+
+        .social-section h2 {
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            margin-bottom: 2rem;
+            color: #ffffff;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background-color: #0a0a0a;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: #151515;
+            border-color: #404040;
+            color: #ffffff;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            border-top: 1px solid #2a2a2a;
+            text-align: center;
+            padding: clamp(2rem, 5vw, 3rem) clamp(1rem, 5vw, 2rem);
+            margin-top: clamp(3rem, 8vw, 4rem);
+        }
+
+        footer p {
+            color: #808080;
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+        }
+
+        /* Call to Action */
+        .cta-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: clamp(2rem, 5vw, 3rem);
+            text-align: center;
+            margin-bottom: clamp(2rem, 8vw, 3rem);
+        }
+
+        .cta-section h2 {
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .cta-section p {
+            font-size: clamp(0.95rem, 2vw, 1.05rem);
+            color: #b0b0b0;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 0.875rem 2rem;
+            background-color: #ffffff;
+            color: #0a0a0a;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: #e0e0e0;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .social-links {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="scott-rancourt-portfolio.html" class="logo">Scott Rancourt</a>
+            <nav>
+                <a href="scott-rancourt-portfolio.html">Home</a>
+                <a href="scott-rancourt-about.html" class="active">About</a>
+                <a href="scott-rancourt-portfolio.html#services">Services</a>
+                <a href="scott-rancourt-portfolio.html#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="about-hero">
+            <h1>About Me</h1>
+            <p>First-year Computer Science student with a passion for AI integration and building solutions for businesses.</p>
+        </section>
+
+        <section class="bio-section">
+            <h2>Who I Am</h2>
+            <p>
+                I'm Scott Rancourt, a first-year Computer Science student at the University of Maryland. I'm passionate about leveraging artificial intelligence to solve real-world business problems and create meaningful digital experiences.
+            </p>
+            <p>
+                What sets me apart is my practical expertise in AI tools and their integration into business workflows. Rather than just learning theory, I focus on applying AI technologies to deliver tangible results—whether that's automating processes, building intelligent solutions, or crafting websites that actually convert.
+            </p>
+            <p>
+                I'm based in Pasadena, Maryland, and I work with small businesses and startups that want to harness AI's potential but don't have the in-house expertise to do it alone. I specialize in bridging that gap, making cutting-edge technology accessible and practical.
+            </p>
+        </section>
+
+        <section class="skills-section">
+            <h2>Core Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>AI Integration</h3>
+                    <p>ChatGPT, Claude, and AI workflows</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Web Development</h3>
+                    <p>HTML, CSS, JavaScript</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Python</h3>
+                    <p>Automation & scripting</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Business Solutions</h3>
+                    <p>Workflow optimization</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Responsive Design</h3>
+                    <p>Mobile-first approach</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Problem Solving</h3>
+                    <p>Creative, practical solutions</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects-section">
+            <h2>My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Scott's Apps</h3>
+                    <p>A collection of AI-powered utility applications built to solve real business problems.</p>
+                    <a href="https://scotts-apps.onrender.com/" target="_blank" class="project-link">View Project →</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>Ready to Transform Your Business?</h2>
+            <p>Starting at just $400, I'll build you a professional website with AI integration capabilities. No long contracts. No hidden fees. Just results.</p>
+            <a href="scott-rancourt-portfolio.html#contact" class="cta-button">Get Started</a>
+        </section>
+
+        <section class="social-section">
+            <h2>Connect With Me</h2>
+            <div class="social-links">
+                <a href="https://github.com" target="_blank">GitHub</a>
+                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                <a href="mailto:scottrancourt529@gmail.com">Email</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Scott Rancourt. All rights reserved.</p>
+    </footer>
+</body>
+</html>
