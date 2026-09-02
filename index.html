@@ -25,9 +25,32 @@
 
     <meta name="theme-color" content="#0a0a0a">
 
-    <style>
-        /* (all your original CSS remains unchanged) */
-    </style>
+   <style>
+    /* Reset & Base */
+    *,
+    *::before,
+    *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    ...
+    /* Accessibility */
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+
+        html {
+            scroll-behavior: auto;
+        }
+    }
+</style>
+
 </head>
 
 <body>
