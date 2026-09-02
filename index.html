@@ -26,7 +26,7 @@
     <meta name="theme-color" content="#0a0a0a">
 
    <style>
-    /* Reset & Base */
+/* Reset & Base */
 *,
 *::before,
 *::after {
@@ -366,8 +366,41 @@ nav a.active {
 }
 
 .pricing-includes ul {
-    list
-    /* Contact Section */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pricing-includes li {
+    color: #555;
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.pricing-includes li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #2563eb;
+    font-weight: bold;
+}
+
+.pricing-footer {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #ddd;
+    font-size: 0.9rem;
+    color: #555;
+    text-align: center;
+}
+
+.pricing-footer strong {
+    color: #0a0a0a;
+}
+
+/* Contact Section */
 .contact {
     padding: clamp(2rem, 8vw, 4rem) 2rem;
     background: #0a0a0a;
@@ -457,8 +490,8 @@ nav a.active {
     outline: 2px solid #2563eb;
     outline-offset: 2px;
 }
-
 </style>
+
 
 </head>
 
