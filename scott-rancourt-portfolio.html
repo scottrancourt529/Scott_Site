@@ -9,21 +9,26 @@
 
 <!-- Open Graph -->
 <meta property="og:title" content="Scott Rancourt | Web Design for Local Businesses">
-<meta property="og:description" content="Fast, mobile-friendly websites designed for Maryland small businesses. Flat-rate pricing and a two-week turnaround.">
+<meta property="og:description" content="Fast, mobile-friendly websites designed for Maryland small businesses. Clear package pricing and a two-week turnaround.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://scottwebservice.onrender.com/scott-rancourt-portfolio.html">
 <meta property="og:image" content="https://scottwebservice.onrender.com/preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Scott Web Service - web design for local businesses">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Scott Rancourt | Web Design for Local Businesses">
-<meta name="twitter:description" content="Custom websites built to convert — fast, mobile-friendly, and optimized for local search.">
+<meta name="twitter:description" content="Custom websites built to convert - fast, mobile-friendly, and optimized for local search.">
+<meta name="twitter:image" content="https://scottwebservice.onrender.com/preview.jpg">
 
 <!-- Canonical URL -->
 <link rel="canonical" href="https://scottwebservice.onrender.com/scott-rancourt-portfolio.html">
 
-  <meta name="description" content="Custom, fast, mobile-friendly websites for Maryland small businesses. Flat-rate pricing, two-week turnaround, Google Business Profile setup, and basic SEO included.">  
+  <meta name="description" content="Custom, fast, mobile-friendly websites for Maryland small businesses. Clear package pricing, two-week turnaround, Google Business Profile setup, and basic SEO included.">  
 <meta name="theme-color" content="#12213A">
+<link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -182,6 +187,32 @@
     padding:32px 30px;
     font-family:'Work Sans',sans-serif;
   }
+  .pricing-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+  }
+  .pricing-card{
+    display:flex;
+    flex-direction:column;
+  }
+  .pricing-card.featured{
+    border-color:var(--brass);
+    box-shadow:0 12px 30px rgba(18,33,58,0.08);
+  }
+  .pricing-card .tag{
+    display:inline-flex;
+    align-self:flex-start;
+    margin-bottom:12px;
+    padding:4px 9px;
+    border-radius:999px;
+    background:rgba(192,138,40,0.13);
+    color:var(--brass-dark);
+    font-size:0.78rem;
+    font-weight:700;
+    letter-spacing:0.02em;
+    text-transform:uppercase;
+  }
   .receipt h3{font-family:'Fraunces',serif;font-size:1.3rem;margin-bottom:2px;}
   .receipt .sub{color:var(--slate);font-size:0.9rem;margin-bottom:20px;}
   .receipt ul{list-style:none;margin:0 0 20px;padding:0;}
@@ -197,6 +228,10 @@
   }
   .receipt .total-row .label{font-weight:600;}
   .receipt .total-row .amount{font-family:'Fraunces',serif;font-size:1.7rem;color:var(--ink);}
+  .pricing-note{grid-column:1 / -1;margin:2px 0 0;color:var(--slate);font-size:0.94rem;}
+  @media (max-width:960px){
+    .pricing-grid{grid-template-columns:1fr;}
+  }
 
   /* ---------- Process ---------- */
   .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative;}
@@ -310,12 +345,12 @@
     <div class="wrap">
       <div class="hero-copy">
         <h1>A website your customers can find, trust, and buy from.</h1>
-        <p class="lede">I design and build fast, mobile-friendly websites for local businesses — from first sketch to a full year of hosting, for one flat price.</p>
+        <p class="lede">I design and build fast, mobile-friendly websites for local businesses — from first sketch to a full year of hosting, with clear package pricing.</p>
         <div class="hero-ctas">
           <a href="#contact" class="btn btn-primary">Start Your Project</a>
           <a href="#process" class="btn btn-ghost">See How It Works</a>
         </div>
-        <p class="hero-trust">Flat-rate pricing, a two-week turnaround, and no long-term contracts — just a site that works as hard as you do.</p>
+        <p class="hero-trust">Packages start at $250, with a $100 deposit to begin and the remaining balance due upon completion — no long-term contracts, just a site that works as hard as you do.</p>
       </div>
       <div class="hero-art" aria-hidden="true">
         <svg viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg">
@@ -366,7 +401,7 @@
       <div class="section-head">
         <div class="kicker">Services</div>
         <h2>Web design, built around your business</h2>
-        <p>One service, done well: a custom website designed to bring in customers, backed by a year of hosting and support.</p>
+        <p>Choose a simple package for the size of site you need. A $100 deposit is required to start work, then you get a custom website designed to bring in customers, backed by a year of hosting and support.</p>
       </div>
       <div class="services-grid">
         <div class="services-list">
@@ -392,20 +427,54 @@
           </div>
         </div>
 
-        <div class="receipt">
-          <h3>Website Order</h3>
-          <div class="sub">Everything included, one flat price</div>
-          <ul>
-            <li><span><span class="check">✓</span>Custom design</span></li>
-            <li><span><span class="check">✓</span>Domain + hosting, 1 year</span></li>
-            <li><span><span class="check">✓</span>Two revision rounds</span></li>
-            <li><span><span class="check">✓</span>Basic SEO setup</span></li>
-          </ul>
-          <div class="total-row">
-            <span class="label">Total investment</span>
-            <span class="amount">$400</span>
+        <div class="pricing-grid">
+          <div class="receipt pricing-card">
+            <h3>One-Page Site</h3>
+            <div class="sub">A focused starter website</div>
+            <ul>
+              <li><span><span class="check">✓</span>Custom one-page design</span></li>
+              <li><span><span class="check">✓</span>Mobile-friendly layout</span></li>
+              <li><span><span class="check">✓</span>Contact form setup</span></li>
+              <li><span><span class="check">✓</span>Basic SEO setup</span></li>
+            </ul>
+            <div class="total-row">
+              <span class="label">Starting at</span>
+                  <span class="amount">$250</span>
+            </div>
+          </div>
+
+          <div class="receipt pricing-card featured">
+            <span class="tag">Most popular</span>
+            <h3>Three-Page Site</h3>
+            <div class="sub">Best for most small businesses</div>
+            <ul>
+              <li><span><span class="check">✓</span>Up to 3 custom pages</span></li>
+              <li><span><span class="check">✓</span>Home, services, and contact</span></li>
+              <li><span><span class="check">✓</span>Two revision rounds</span></li>
+              <li><span><span class="check">✓</span>Hosting support included</span></li>
+            </ul>
+            <div class="total-row">
+              <span class="label">Starting at</span>
+                  <span class="amount">$400</span>
+            </div>
+          </div>
+
+          <div class="receipt pricing-card">
+            <h3>Extra Pages</h3>
+            <div class="sub">For larger sites after 3 pages</div>
+            <ul>
+              <li><span><span class="check">✓</span>About pages</span></li>
+              <li><span><span class="check">✓</span>Service detail pages</span></li>
+              <li><span><span class="check">✓</span>Gallery or FAQ pages</span></li>
+              <li><span><span class="check">✓</span>Matched to your site design</span></li>
+            </ul>
+            <div class="total-row">
+              <span class="label">After 3 pages</span>
+              <span class="amount">$100/page</span>
+            </div>
           </div>
         </div>
+            <p class="pricing-note">A $100 deposit is required to start work on any package. Remaining balance is due upon completion.</p>
       </div>
     </div>
   </section>
@@ -416,25 +485,25 @@
       <div class="section-head">
         <div class="kicker">Process</div>
         <h2>How a project comes together</h2>
-        <p>Start with a small deposit — the rest is due only once you've approved the finished site.</p>
+        <p>Pick the site size that fits your business, approve the design, then launch with hosting and support included.</p>
       </div>
       <div class="steps">
         <div class="step">
           <div class="step-num">1</div>
-          <h4>Deposit &amp; kickoff</h4>
-          <div class="price">$100</div>
+          <h4>Choose your package</h4>
+          <div class="price">1 page, 3 pages, or more</div>
           <p>We talk through your business, your goals, and what your site needs to do. Your project begins as soon as the deposit is in.</p>
         </div>
         <div class="step">
           <div class="step-num">2</div>
           <h4>Design &amp; development</h4>
-          <div class="price">$150 on approval</div>
+          <div class="price">Built around your content</div>
           <p>I build your site and walk you through two rounds of revisions until it's exactly right.</p>
         </div>
         <div class="step">
           <div class="step-num">3</div>
           <h4>Launch, hosting &amp; maintenance</h4>
-          <div class="price">$150</div>
+          <div class="price">Included with your site</div>
           <p>Your site goes live on your domain, with a full year of hosting and maintenance included.</p>
         </div>
       </div>
@@ -619,3 +688,4 @@
 
 </body>
 </html>
+
